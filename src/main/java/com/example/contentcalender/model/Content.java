@@ -1,14 +1,18 @@
 package com.example.contentcalender.model;
 
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 
 import java.time.LocalDateTime;
 
 public record Content(
+        @Id
         Integer id,
         @NotBlank
         String title,
-        String description,
+        @Column(value = "description")
+        String desc,
         Status status,
         Type contentType,
         LocalDateTime dateCreated,
