@@ -21,7 +21,6 @@ public class ContentController {
         this.repository = repository;
     }
 
-
     @GetMapping
     public List<Content> findAll() {
         return repository.findAll();
@@ -64,5 +63,4 @@ public class ContentController {
     public List<Content> findByTitle(@PathVariable String keyword) {
         return repository.findAllByTitleContains(keyword);
     }
-
 }
