@@ -8,6 +8,3 @@ CREATE TABLE IF NOT EXISTS Content (
     date_updated TIMESTAMP,
     url VARCHAR(255)
 );
-
---INSERT INTO Content(title,description,status,content_type,date_created)
---VALUES ('First post', 'About first post', 'IDEA', 'ARTICLE', CURRENT_TIMESTAMP)
