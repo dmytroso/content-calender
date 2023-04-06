@@ -53,11 +53,10 @@ public class ContentController {
         repository.deleteById(id);
     }
 
-    /* @GetMapping("/filter/type/{type}")
+    @GetMapping("/filter/type/{type}")
      public List<Content> filterByType(@PathVariable String type) {
          return repository.findAllByContentType(type.toUpperCase());
      }
-    */
 
     @GetMapping("/filter/{keyword}")
     public List<Content> findByTitle(@PathVariable String keyword) {

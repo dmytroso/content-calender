@@ -1,9 +1,13 @@
 package com.example.contentcalender.config;
 
+import com.example.contentcalender.model.Content;
 import com.example.contentcalender.repository.ContentRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import java.io.InputStream;
+import java.util.List;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -18,5 +22,10 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        if (repository.count() == 0) {
+            try (InputStream inputStream = TypeReference.class.getResourceAsStream("/data/content.json")) {
+                repository.saveAll(objectMapper.readValue(inputStream,new TypeReference<List<Content>>(){}));
+            }
+        }
     }
 }
