@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ContentRepository extends ListCrudRepository<Content,Integer> {
     List<Content> findAllByTitleContains(String keyword);
+    List<Content> findAllByContentType(String type);
 }
